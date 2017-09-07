@@ -2,5 +2,20 @@
 
 function solve(pExpression, pNumber)
 {
-    return math.eval(pExpression.replace(/x/g, pNumber.toString()))
+    try
+    {
+        var func = new Function("x", 'return ' + pExpression + ';');
+    }
+    catch (err)
+    {
+        console.log(err)
+        return NaN;
+    }
+    var result  = func(pNumber);
+    if (isFinite(result) === false)
+    {
+        return NaN;
+    }
+
+    return result
 }
