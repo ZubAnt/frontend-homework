@@ -1,26 +1,21 @@
 'use strict';
 
-function solve(pExpression, pNumber)
-{
-    if (isNaN(parseFloat(pNumber)) === true || isFinite(pNumber) === false)
-    {
+function solve(pExpression, pNumber) {
+
+    if (isNaN(parseFloat(pNumber))) {
+
         console.log("bad input parameter: " + pNumber);
         return NaN;
     }
-    try
-    {
+    try {
+
         let func = new Function("x", 'return ' + pExpression + ';');
-        let result  = func(pNumber);
-        if (isFinite(result) === false)
-        {
-            return NaN;
-        }
-        return result;
+        return func(pNumber);
 
     }
-    catch (err)
-    {
-        console.log(err)
+    catch (err) {
+
+        console.log(err);
         return NaN;
     }
 }
