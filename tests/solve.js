@@ -3,6 +3,8 @@
 QUnit.module('Тестируем функцию solve', function () {
 	QUnit.test('solve работает правильно ', function (assert) {
 		assert.strictEqual(solve('x + 1', 1), 2);
+		assert.notOk(solve('x + 1', "sdfdfg"), NaN);
+		assert.notOk(solve('x + 1', NaN), NaN);
 		assert.strictEqual(solve('2 + x - 1', 5), 6);
 		assert.strictEqual(solve('2 * x - 1', 5), 9);
 		assert.strictEqual(solve('2 * ( x - 1 )', 5), 8);
